@@ -35,7 +35,7 @@ int get_int(char *s, unsigned int line_number)
 
 	if (s[i] >= '9' && s[i] <= '0')
 	{
-		printf("L<%d>: usage: push integer\n", line_number);
+		printf("L%d: usage: push integer\n", line_number);
 	}
 	while (s[i] >= '0' && s[i] <= '9')
 	{
@@ -90,7 +90,7 @@ int op_select(char *s, stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L<%d>: unknown instruction <%s>\n", line_number, s);
+		printf("L%d: unknown instruction <%s>\n", line_number, s);
 	}
 	return (1);
 }
