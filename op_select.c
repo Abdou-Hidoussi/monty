@@ -5,7 +5,7 @@
  * @line_number: the line in file
  */
 void op_pall(stack_t **stack, unsigned int line_number)
-{
+{/*
 	unsigned int i;
 	stack_t *s;
 
@@ -13,7 +13,7 @@ void op_pall(stack_t **stack, unsigned int line_number)
 	while (s != NULL)
 	{
 		printf("%d\n", (*s).n);
-		if (s->next)
+		if (s->next != NULL)
 		{
 			s = s->next;
 		}
@@ -21,7 +21,7 @@ void op_pall(stack_t **stack, unsigned int line_number)
 		{
 			return;
 		}
-	}
+	}*/
 }
 /**
  * get_int - get int after cammand in string
@@ -51,22 +51,22 @@ int get_int(char *s, unsigned int line_number)
  * @value: the value of the new item
  */
 void op_push(stack_t **stack, unsigned int line_number, int value)
-{
+{/*
 	stack_t *new, *s;
-
 	s = *stack;
-	new = malloc(sizeof(stack_t *));
+	new = malloc(sizeof(stack_t **));
 	new->n = value;
-	if (s)
+	if (s->n)
 	{
-		new->next = s;
-		s->prev = new;
+		//new->next = s;
+		/*s->prev = new;
 		*stack = new;
 	}
 	else
 	{
 		*stack = new;
-	}
+	}*/
+			
 }
 /**
  * op_select - push function
@@ -81,7 +81,6 @@ int op_select(char *s, stack_t **stack, unsigned int line_number)
 
 	remove_spaces(s);
 	remove_backline(s);
-
 
 	i = 0;
 	if (strncmp(s, "push", 3) == 0)
