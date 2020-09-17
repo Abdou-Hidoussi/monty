@@ -4,7 +4,6 @@
 /**
  * op_pall - pall function
  * @stack: the stack
- * @line_number: the line in file
  */
 void op_pall(stack_t **stack)
 {
@@ -48,12 +47,12 @@ int get_int(char *s, unsigned int line_number)
 /**
  * op_push - push function
  * @stack: the stack
- * @line_number: the line in file
  * @value: the value of the new item
  */
 void op_push(stack_t **stack, int value)
 {
 	stack_t *new, *s;
+
 	s = *stack;
 	new = malloc(sizeof(stack_t **));
 	new->n = value;
@@ -67,7 +66,6 @@ void op_push(stack_t **stack, int value)
 	{
 		*stack = new;
 	}
-			
 }
 /**
  * op_select - push function
