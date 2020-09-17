@@ -1,12 +1,13 @@
 #include "monty.h"
+#include <string.h>
+
 /**
  * op_pall - pall function
  * @stack: the stack
  * @line_number: the line in file
  */
-void op_pall(stack_t **stack, unsigned int line_number)
+void op_pall(stack_t **stack)
 {
-	unsigned int i;
 	stack_t *s;
 
 	s = *stack;
@@ -50,7 +51,7 @@ int get_int(char *s, unsigned int line_number)
  * @line_number: the line in file
  * @value: the value of the new item
  */
-void op_push(stack_t **stack, unsigned int line_number, int value)
+void op_push(stack_t **stack, int value)
 {
 	stack_t *new, *s;
 	s = *stack;
@@ -77,20 +78,17 @@ void op_push(stack_t **stack, unsigned int line_number, int value)
  */
 int op_select(char *s, stack_t **stack, unsigned int line_number)
 {
-	int i;
-
 	remove_spaces(s);
 	remove_backline(s);
 
-	i = 0;
 	if (strncmp(s, "push", 3) == 0)
 	{
-		op_push(stack, line_number, get_int(s, line_number));
+		op_push(stack, get_int(s, line_number));
 		return (0);
 	}
 	else if (strncmp(s, "pall", 3) == 0)
 	{
-		op_pall(stack, line_number);
+		op_pall(stack);
 	}
 	else
 	{
